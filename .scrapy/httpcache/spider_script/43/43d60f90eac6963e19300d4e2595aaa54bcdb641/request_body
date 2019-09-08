@@ -1,0 +1,14 @@
+{
+    "cookies": [],
+    "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en",
+        "Referer": "https://fdc.nal.usda.gov/fdc-app.html",
+        "User-Agent": "Scrapy/1.6.0 (+https://scrapy.org)",
+        "X-My-Header": "value"
+    },
+    "load_args": {
+        "lua_source": "d608d7335cd49aa77589c7d84e8093b33f439f44"
+    },
+    "url": "https://fdc.nal.usda.gov/fdc-app.html#/food-details/168492/nutrients"
+}

@@ -1,0 +1,13 @@
+{
+    "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en",
+        "User-Agent": "Scrapy/1.6.0 (+https://scrapy.org)",
+        "X-My-Header": "value"
+    },
+    "lua_source": "\n            function main(splash, args)\n                assert(splash:go(args.url))\n                assert(splash:wait(5))\n                i = 3\n                assert(splash:runjs('document.querySelector(\".page-number div a:nth-child(' .. i .. ')\").click()'))\n                assert(splash:wait(5))\n                splash:set_viewport_full()\n                return {\n                    html = splash:html()\n                }\n            end\n\n            ",
+    "save_args": [
+        "lua_source"
+    ],
+    "url": "https://fdc.nal.usda.gov/fdc-app.html#/food-search"
+}
