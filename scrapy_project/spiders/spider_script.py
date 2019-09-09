@@ -8,7 +8,7 @@ script = """
 
 function main(splash, args)
     assert(splash:go(args.url))
-    assert(splash:wait(5))
+    assert(splash:wait(2))
     splash:set_viewport_full()
     return {
         html = splash:html()
@@ -21,9 +21,9 @@ end
 pagination_script = """
 function main(splash, args)
   assert(splash:go(args.url))
-  assert(splash:wait(5))  
+  assert(splash:wait(2))  
   assert(splash:runjs('document.querySelector(".page-number div a:nth-child(' .. splash.args.value .. ')").click()'))
-  assert(splash:wait(5))
+  assert(splash:wait(1))
   splash:set_viewport_full()
   return {
       html = splash:html()

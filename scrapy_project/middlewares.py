@@ -7,6 +7,32 @@
 
 from scrapy import signals
 
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
+import random
+import logging
+
+
+class UserAgentRotatorMiddleware(UserAgentMiddleware):
+    user_agents_list = [
+        'agent_1',
+        'agent_2',
+        'agent_3',
+        'agent_4',
+        'agent_5',
+        'agent_6',
+        'agent_7'
+    ]
+
+    def __init__(self, user_agent=''):
+        self.user_agent = user_agent
+
+    def process_request(self, request, spider):
+        try:
+            self.user_agent = random.choice(self.user_agents_list)
+            request.headers.setdefault('User-Agent', self.user_agent)
+        except IndexError:
+            logging.error("Couldn't fetch the user agent")
+
 
 class ScrapyProjectSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
